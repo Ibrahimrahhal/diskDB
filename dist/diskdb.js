@@ -14,6 +14,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 //local modules
@@ -78,6 +80,16 @@ var DiskDB = function () {
         console.log((0, _chalk.red)('Invalid Collections Array.', 'Expected Format : ', '[\'collection1\',\'collection2\',\'collection3\']'));
       }
       return this;
+    }
+  }, {
+    key: 'getCollection',
+    value: function getCollection(collectionName) {
+      if (_typeof(this[collectionName]) == (typeof undefined === 'undefined' ? 'undefined' : _typeof(undefined))) {
+        console.log((0, _chalk.red)('Invalid Collection Name', 'Passed Collection Name Is Not Loaded Yet'));
+        return false;
+      } else {
+        return this[collectionName];
+      }
     }
   }]);
 
